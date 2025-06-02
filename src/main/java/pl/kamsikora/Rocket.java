@@ -27,11 +27,18 @@ class Rocket implements Assignable {
     }
 
     public void assignToMission(Mission mission) {
+        this.mission = mission;
+        this.isAssigned = true;
+        this.status = RocketStatus.IN_SPACE;
     }
 
     public void unassignFromMission() {
+        this.mission = null;
+        this.isAssigned = false;
+        this.status = RocketStatus.ON_GROUND;
     }
 
     void repair() {
+        this.status = RocketStatus.IN_REPAIR;
     }
 }

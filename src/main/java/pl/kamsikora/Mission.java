@@ -25,11 +25,18 @@ class Mission {
     }
 
     void assignRocket(Rocket rocket, MissionStatus status) {
+        rockets.add(rocket);
+        this.status = status;
     }
 
     void unassignRocket(Rocket rocket) {
+        rockets.remove(rocket);
+        if (rockets.isEmpty()) {
+            this.status = MissionStatus.ENDED;
+        }
     }
 
     void pauseMission() {
+        this.status = MissionStatus.PENDING;
     }
 }
